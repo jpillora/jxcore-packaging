@@ -14,7 +14,21 @@ adding script test.js
 adding asset bar.txt
 compiled file is ready (../out/test.jx)
 == RUN PACKAGED
-/root/Luma/jxcore-packaging/out/bar.txt: Error: ENOENT, open 'bar.txt'
+
+fs.js:485
+  return binding.open(pathModule._makeLong(path), stringToFlags(flags), mode);
+                 ^
+Error: ENOENT, no such file or directory './bar.txt'
+    at Object.fs.openSync (fs.js:485:18)
+    at Object.fs.readFileSync (fs.js:342:15)
+    at Object.<anonymous> (./test.js:7:19)
+    at Module._compile (module.js:514:26)
+    at readX (module.js:967:4)
+    at Object.Module._extensions..jx (module.js:1199:638)
+    at Module.load (module.js:379:33)
+    at Function.Module._load (module.js:331:12)
+    at Function.Module.runMain (module.js:579:11)
+    at startup (node.js:257:14)
 == DONE
 ```
 
