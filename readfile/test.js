@@ -1,6 +1,29 @@
 var fs = require("fs");
-//remove the leading .
-var dirname = __dirname.replace(/^\./,'');
+var path = require("path");
 
-var contents = fs.readFileSync('./bar.txt');
-console.log('%s/bar.txt: %s', dirname, contents);
+var full = path.join(__dirname, 'bar.txt');
+var rela = path.join('.','bar.txt');
+
+function sync(p) {
+  var err, contents;
+  try {
+    contents = fs.readFileSync(p);
+  } catch(e) { err = e; }
+  console.log("sync '%s': %s", p, err ? 'FAIL': 'PASS');
+}
+
+function async(p) {
+  fs.readFile(p, function(err, contents) {
+    console.log("async '%s': %s", p, err ? 'FAIL': 'PASS');
+  });
+}
+
+function test(p) {
+  sync(p);
+  async(p);
+}
+
+//read full path
+test(full);
+test(rela);
+test(path.resolve(rela));
