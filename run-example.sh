@@ -3,6 +3,7 @@ if [ ! -d $EG ]; then
   echo "missing example $EG"
   exit 1
 fi
+mkdir out
 echo "== EXAMPLE: $EG"
 cd $EG
 echo "== RUN NON-PACKAGED"
