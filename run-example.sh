@@ -3,15 +3,23 @@ if [ ! -d $EG ]; then
   echo "missing example $EG"
   exit 1
 fi
-mkdir out
-echo "== EXAMPLE: $EG"
+
+mkdir -p out
+
 cd $EG
-echo "== RUN NON-PACKAGED"
-jx test.js
-echo "== PACKAGE"
+jx test.js &> ../out/unpackaged.txt
 jx package test.js ../out/test
-echo "== RUN PACKAGED"
+echo "== Running '$EG' ==="
 cd ../out
-jx test.jx
-echo "== DONE"
-rm *.jx*
+jx test.jx &> packaged.txt
+
+echo "== Diff Output =="
+if ! diff -q unpackaged.txt packaged.txt; then
+  echo "FAIL"
+  diff unpackaged.txt packaged.txt
+else
+  echo "PASS"
+fi
+
+cd ..
+rm -r out/
