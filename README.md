@@ -1,1 +1,1 @@
-See `run-example.sh <folder-name>` to test packaging that folder
+Run `run-examples.sh` to run all packaging tests

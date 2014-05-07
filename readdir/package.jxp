@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "author": "Jaime Pillora",
   "description": "A readdir test",
-  "output": "../out/test.jx",
+  "output": "../tmp/test.jx",
   "startup": "test.js",
   "files": [
     "test.js"
