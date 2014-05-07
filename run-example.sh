@@ -7,9 +7,9 @@ fi
 mkdir -p out
 
 cd $EG
-jx test.js &> ../out/unpackaged.txt
-jx package test.js ../out/test
 echo "== Running '$EG' ==="
+jx test.js &> ../out/unpackaged.txt
+jx compile package.jxp
 cd ../out
 jx test.jx &> packaged.txt
 

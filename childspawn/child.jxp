@@ -1,0 +1,12 @@
+{
+  "name": "child",
+  "version": "0.1.0",
+  "author": "Jaime Pillora",
+  "description": "A child test",
+  "output": "child.jx",
+  "startup": "child.js",
+  "files": [
+    "child.js"
+  ],
+  "library": true
+}

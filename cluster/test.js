@@ -1,12 +1,7 @@
 var cluster = require('cluster');
 
 if (cluster.isMaster) {
-  console.log('I am master');
-  cluster.fork();
-  setTimeout(function() {
-    cluster.fork();
-  }, 20);
+  require('./master.js');
 } else if (cluster.isWorker) {
-  console.log('I am worker #' + cluster.worker.id);
-  process.exit(0);
+  require('./worker.js');
 }

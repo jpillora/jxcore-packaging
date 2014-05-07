@@ -1,0 +1,14 @@
+{
+  "name": "readfile",
+  "version": "0.1.0",
+  "author": "Jaime Pillora",
+  "description": "A readfile test",
+  "output": "../out/test.jx",
+  "startup": "test.js",
+  "files": [
+    "test.js"
+  ],
+  "assets": [
+    "bar.txt"
+  ]
+}

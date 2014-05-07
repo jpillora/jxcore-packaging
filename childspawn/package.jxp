@@ -1,0 +1,14 @@
+{
+  "name": "childspawn",
+  "version": "0.1.0",
+  "author": "Jaime Pillora",
+  "description": "A childspawn test",
+  "output": "../out/test.jx",
+  "startup": "test.js",
+  "files": [
+    "test.js"
+  ],
+  "assets": [
+    "child.jx"
+  ]
+}
