@@ -2,7 +2,7 @@
 
 FILTER=$1
 BASE=`pwd`
-TMP=$PWD/tmp
+TMP=$BASE/tmp
 DIRS=`ls -d */`
 
 finish() {
@@ -11,26 +11,35 @@ finish() {
   exit
 }
 
-example() {
+runtest() {
   #clear tmp
   mkdir -p $TMP
-  rm -r $TMP/* &> /dev/null
+  rm -rf $TMP/* &> /dev/null
 
-  EG=$1
-  cd $BASE/$EG
+  TEST=$1
+  cd $BASE/$TEST
 
   #npm install if this example has a package.json
-  if [ -e $BASE/$EG/package.json ] && ! [ -e $BASE/$EG/node_modules ]; then
-    echo "== npm install '$EG' ==="
+  if [ -e $BASE/$TEST/package.json ] && ! [ -e $BASE/$TEST/node_modules ]; then
+    echo "== npm install '$TEST' ==="
     npm install
   fi
 
+  # native modules: only works if we also copy node_modules
+  # if [ -e $BASE/$TEST/node_modules ]; then
+  #   cp -r $BASE/$TEST/node_modules $TMP/node_modules
+  # fi
+
   #run example with jx
-  echo "== Running '$EG' ==="
+  echo "== Running '$TEST' ==="
   jx test.js &> $TMP/unpackaged.txt
 
-  #compile example 
-  jx compile package.jxp &> $TMP/compile.txt
+  #compile example using .jxp
+  if [ -e package.jxp ]; then
+    jx compile package.jxp &> $TMP/compile.txt
+  else #compile example using auto-package
+    jx package test.js $TMP/test &> $TMP/compile.txt
+  fi
 
   if ! [ -e $TMP/test.jx ]; then
     echo "FAIL: packaging error:\n`cat $TMP/compile.txt`"
@@ -50,10 +59,10 @@ example() {
   fi
 }
 
-for dir in $DIRS; do
+for DIR in $DIRS; do
   #filter tests that match $1
-  if [[ $dir == *$FILTER* ]]; then
-    example $dir
+  if [[ $DIR == *$FILTER* ]]; then
+    runtest $DIR
   fi
 done
 
