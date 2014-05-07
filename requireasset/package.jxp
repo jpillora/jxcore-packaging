@@ -8,7 +8,6 @@
     "test.js"
   ],
   "assets": [
-    "ping.txt",
-    "pong.txt"
+    "asset.js"
   ]
 }

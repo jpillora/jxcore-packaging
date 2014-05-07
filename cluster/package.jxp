@@ -1,8 +1,7 @@
 {
-  "name": "cluster",
+  "name": "test",
   "version": "0.1.0",
-  "author": "Jaime Pillora",
-  "description": "A cluster test",
+  "author": "Jaime Pillora",  
   "output": "../tmp/test.jx",
   "startup": "test.js",
   "files": [

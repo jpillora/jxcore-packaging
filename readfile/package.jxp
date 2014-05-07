@@ -1,8 +1,7 @@
 {
-  "name": "readfile",
+  "name": "test",
   "version": "0.1.0",
   "author": "Jaime Pillora",
-  "description": "A readfile test",
   "output": "../tmp/test.jx",
   "startup": "test.js",
   "files": [
