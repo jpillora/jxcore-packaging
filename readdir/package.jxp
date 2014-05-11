@@ -8,7 +8,7 @@
     "test.js"
   ],
   "assets": [
-    "ping.txt",
-    "pong.txt"
+    "sub/ping.txt",
+    "sub/pong.txt"
   ]
 }

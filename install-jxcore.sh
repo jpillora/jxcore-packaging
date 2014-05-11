@@ -8,10 +8,9 @@ fi
 
 URL=https://s3.amazonaws.com/nodejx/$VERSION.zip
 
-curl $URL -o /tmp/jx.zip
-
-unzip /tmp/jx.zip -qq -o -d /tmp/jx/
-
-mv /tmp/jx/$VERSION/jx /usr/local/bin/jx
-
-rm -rf /tmp/jx
+echo "downloading: $URL"
+curl $URL -o /tmp/jx.zip &&
+  unzip -o -qq /tmp/jx.zip -d /tmp/jx/ &&
+  mv /tmp/jx/$VERSION/jx /usr/local/bin/jx &&
+  rm -rf /tmp/jx &&
+  echo "installed"
