@@ -19,6 +19,17 @@ runtest() {
   TEST=$1
   cd $BASE/$TEST
 
+  #skip if it has no 'test.js'
+  if ! [ -e test.js ]; then
+    return
+  fi
+
+  #if example has a setup.sh, run it
+  if [ -e $BASE/$TEST/setup.sh ]; then
+    echo "== running '$TEST' setup.sh ==="
+    sh $BASE/$TEST/setup.sh
+  fi
+
   #npm install if this example has a package.json
   if [ -e $BASE/$TEST/package.json ] && ! [ -e $BASE/$TEST/node_modules ]; then
     echo "== npm install '$TEST' ==="

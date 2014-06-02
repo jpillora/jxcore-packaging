@@ -1,28 +1,30 @@
-var express = require("express"),
-    app = express(),
-    http = require("http");
+var express = require("express");
+var app = express();
+// var http = require("http");
 
-var server = http.createServer(app);
+console.log('express app created: %s', !!app);
 
-app.get("/", function(req, res) {
-  res.send("hello");
-});
+// var server = http.createServer(app);
 
-server.on('listening', function() {
-  console.log('listening!');
+// app.get("/", function(req, res) {
+//   res.send("hello");
+// });
 
-  //test server
-  http.get({
-    port: 3000
-  }, function(res) {
-    res.on('data', function(buff) {
-      console.log(buff.toString());
-    });
-    res.on('end', function() {
-      server.close();
-    });
-  });
-});
+// server.on('listening', function() {
+//   console.log('listening!');
 
-server.listen(3000);
+//   //test server
+//   http.get({
+//     port: 3000
+//   }, function(res) {
+//     res.on('data', function(buff) {
+//       console.log(buff.toString());
+//     });
+//     res.on('end', function() {
+//       server.close();
+//     });
+//   });
+// });
+
+// server.listen(3000);
 

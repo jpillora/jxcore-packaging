@@ -1,0 +1,12 @@
+{
+  "name": "test",
+  "version": "0.1.0",
+  "author": "Jaime Pillora",
+  "output": "../tmp/test.jx",
+  "startup": "test.js",
+  "files": [
+    "foo/package.json",
+    "foo/lib/foo.js",
+    "test.js"
+  ]
+}
