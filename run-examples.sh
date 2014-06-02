@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 FILTER=$1
 BASE=`pwd`
@@ -12,7 +12,7 @@ finish() {
 }
 
 runtest() {
-  #clear tmp
+  #clear tmp contents
   mkdir -p $TMP
   rm -rf $TMP/* &> /dev/null
 

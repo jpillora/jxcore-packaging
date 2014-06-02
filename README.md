@@ -1,1 +1,1 @@
-Run `run-examples.sh` to run all packaging tests
+Run `./run-examples.sh` to run all packaging tests

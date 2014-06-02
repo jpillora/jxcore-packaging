@@ -5,11 +5,9 @@
   "output": "../tmp/test.jx",
   "startup": "test.js",
   "files": [
-    "test.js",
-    "scripts/foo.js"
+    "foo/foo.js",
+    "test.js"
   ],
   "assets": [
-    "sub/ping.txt",
-    "sub/pong.txt"
   ]
 }
