@@ -1,5 +1,5 @@
 {
-  "name": "nativemodules",
+  "name": "extract",
   "version": "1.0",
   "startup": "test.js",
   "extract": true,
@@ -8,6 +8,6 @@
     "test.js"
   ],
   "assets": [
-    "foo.txt"
+    "sub/foo.txt"
   ]
 }
