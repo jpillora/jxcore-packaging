@@ -26,8 +26,12 @@ runtest() {
 
   #if example has a setup.sh, run it
   if [ -e $BASE/$TEST/setup.sh ]; then
-    echo "== running '$TEST' setup.sh ==="
-    sh $BASE/$TEST/setup.sh
+    echo "== Setup '$TEST' ==="
+    if ! sh $BASE/$TEST/setup.sh &> $TMP/setup.txt; then
+      cat $TMP/setup.txt
+      finish
+      return
+    fi
   fi
 
   #npm install if this example has a package.json
