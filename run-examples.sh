@@ -72,6 +72,7 @@ runtest() {
   else
     echo "PASS"
   fi
+  echo
 }
 
 for DIR in $DIRS; do
