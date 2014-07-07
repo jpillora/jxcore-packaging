@@ -8,6 +8,6 @@
     "test.js"
   ],
   "preInstall": [
-    "cp ../childrequire/child.jx . #irl, would be a wget/curl"
+    "JX_BINARY compile child.jxp"
   ]
 }

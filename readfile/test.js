@@ -9,12 +9,12 @@ function sync(name, p) {
   try {
     contents = fs.readFileSync(p);
   } catch(e) { err = e; }
-  console.log("sync '%s': %s", name, err ? 'FAIL': 'PASS');
+  console.log("sync '%s': %s", name, err || 'OK');
 }
 
 function async(name, p) {
-  fs.readFile(p, function(err, contents) {
-    console.log("async '%s': %s", name, err ? 'FAIL': 'PASS');
+  fs.readFile(p, function(err) {
+    console.log("async '%s': %s", name, err || 'OK');
   });
 }
 
