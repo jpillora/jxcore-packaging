@@ -68,7 +68,7 @@ runtest() {
   #compare both
   if ! diff -q $TMP/unpackaged.txt $TMP/packaged.txt &> /dev/null; then
     echo "FAIL"
-    diff $TMP/unpackaged.txt $TMP/packaged.txt
+    diff -y $TMP/unpackaged.txt $TMP/packaged.txt
   else
     echo "PASS"
   fi
